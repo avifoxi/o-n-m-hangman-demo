@@ -7,19 +7,17 @@ var GuessMapFlipCards = function () {
 		_guessMap = [];
 
 	this.render = function( newGuessMap ){
-		_guessMap;
-		_template;
-		$flipCardRow;
 		let row = [];
 		newGuessMap.forEach(function(guess, index){
-
+			let flipCard;
 			if ( _guessMap[ index ] !== newGuessMap[ index ]){
-				let flipCard = formatFlipcard(guess);
+				flipCard = formatFlipcard(guess);
 				row.push( flipCard );
-			}
+			} else {
+				flipCard = $flipCardRow.children()[index];
+			} 
 		})
 		$flipCardRow.append( row );
-		debugger;
 	};
 	function formatFlipcard( guess ){
 		let flip = $.parseHTML(_template),
