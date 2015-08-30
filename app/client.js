@@ -1,5 +1,5 @@
 // for quick prototyping -- worth the speed to globally expose jQuery and bootstrap
-// though more complicated apps - this is likely not worth the initial ease
+// though for more complicated apps - this is likely not worth the initial ease
 
 window.$ = require('jquery');
 window.jQuery = $;
