@@ -2,11 +2,11 @@
 
 var Scoreboard = function() {
 	// DOM hooks
-	var $turnsLeft = $('td[data="turnsLeft"]'),
-		$wrongs = $('td[data="wrongs"]'),
-		_viewsMap = {
-			turnsLeft: $turnsLeft,
-			wrongs: $wrongs
+	var _viewsMap = {
+			turnsLeft: $('td[data="turnsLeft"]'),
+			wrongs: $('td[data="wrongs"]'),
+			win: $('td[data="win"]'),
+			lose: $('td[data="lose"]')
 		},
 		_state = {};
 

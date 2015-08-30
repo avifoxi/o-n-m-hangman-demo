@@ -35,19 +35,9 @@ var MASTER = function () {
 		_Modal 				 = new Modal( this );
 	}.bind(this));
 
-	function play(){
-		// let guess = prompt('guess a letter'),
-		// 	state = undefined;
-
-		// _hangmanModel.guess( guess );
-		// state = _hangmanModel.getState();
-		// render( state );
-	}
-
 	this.handleWordSubmit = function( word ){
 		_hangmanModel = new Hangman( word );
 		render( _hangmanModel.getState(), 'START_GAME' );
-		play();
 	};
 	this.handleGuessSubmit = function( guess ){
 		let newState, isGameOver;
@@ -60,12 +50,15 @@ var MASTER = function () {
 		}
 	};
 	this.handleNewGameClick = function(){
-
+		_WordInput.toggle();
 	};
 
 	function handleResult( isGameOver ){
-		_previousGames[ isGameOver ] += _previousGames[ isGameOver ]++; // increment score
+		_previousGames[ isGameOver[0] ] = ++_previousGames[ isGameOver[0] ]; // increment score
 		_Modal.handleResult( isGameOver );
+		_Scoreboard.updateState({
+			isGameOver[0]: _previousGames[ isGameOver[0] ]
+		});
 	}
 	function render( state, special ){
 		if ( special === 'START_GAME' ){

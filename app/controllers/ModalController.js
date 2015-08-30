@@ -22,6 +22,7 @@ var Modal = function ( MASTER ) {
 	$newGame.click(function(e){
 		e.preventDefault();
 		MASTER.handleNewGameClick();
+		$modal.modal( 'hide' );
 	});
 }
 

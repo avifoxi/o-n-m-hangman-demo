@@ -8,6 +8,7 @@ var WordInput = function( MASTER ) {
 	$submit.click(function(e){
 		e.preventDefault();
 		let word = $input.val();
+		$input.val('');
 		MASTER.handleWordSubmit( word );
 	});
 
@@ -16,7 +17,6 @@ var WordInput = function( MASTER ) {
 		$jumbotron.data('hidden', flip);
 		$('.jumbotron').toggle('height');
 	}
-
 }
 
 module.exports = WordInput;
