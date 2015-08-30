@@ -53,9 +53,9 @@ var Hangman = function( word ) {
 			}).length;
 
 		if ( openSpaces === 0 ){ // user has filled all open spaces and guessed the word
-			return OUTCOMES[1]; // win - HOORAY!
+			return [ OUTCOMES[1], word ]; // win - HOORAY!
 		} else if ( _turnsLeft === 0){
-			return OUTCOMES[0]; // lose... sorry!
+			return [ OUTCOMES[0], word ]; // lose... sorry!
 		} else {
 			return false;
 		}

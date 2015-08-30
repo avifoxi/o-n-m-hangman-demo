@@ -3,14 +3,12 @@
 var Scoreboard = function() {
 	// DOM hooks
 	var $turnsLeft = $('td[data="turnsLeft"]'),
-		$guessMap = $('td[data="guessMap"]'),
 		$wrongs = $('td[data="wrongs"]'),
 		_viewsMap = {
 			turnsLeft: $turnsLeft,
-			guessMap: $guessMap,
 			wrongs: $wrongs
 		},
-		_state = undefined;
+		_state = {};
 
 	this.updateState = function( newState ){
 		for ( let key in newState ){

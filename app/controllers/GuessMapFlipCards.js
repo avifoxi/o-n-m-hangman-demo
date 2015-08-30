@@ -17,13 +17,13 @@ var GuessMapFlipCards = function () {
 				flipCard = $flipCardRow.children()[index];
 			} 
 		})
-		$flipCardRow.append( row );
+		$flipCardRow.html( row );
 	};
 	function formatFlipcard( guess ){
-		let flip = $.parseHTML(_template),
+		let flip = $.parseHTML( _template ),
 			text = ( guess === null ) ? '_' : guess; 
-		$(flip).children().first().html(text);
-		return $(flip);
+		$( flip ).children().first().html( text );
+		return $( flip );
 	};
 }
 
