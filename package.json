@@ -1,0 +1,33 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "oglyauditiontest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avifoxi/o-n-m-hangman-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avifoxi/o-n-m-hangman-demo/issues"
+  },
+  "homepage": "https://github.com/avifoxi/o-n-m-hangman-demo#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "babelify": "^6.2.0",
+    "browserify": "^11.0.1",
+    "gulp": "^3.9.0",
+    "gulp-server-livereload": "^1.4.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
+  }
+}

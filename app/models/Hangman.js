@@ -32,7 +32,7 @@ var Hangman = function( word ) {
 			_wrongs.push( char );
 		}
 		_turnsLeft--;
-		logState.apply(this);
+		// logState.apply(this);
 		result = isGameOver();
 		return result ? result : null;
 	};
@@ -70,3 +70,5 @@ var Hangman = function( word ) {
 		});
 	}
 }
+
+module.exports = Hangman;
