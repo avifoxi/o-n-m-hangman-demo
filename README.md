@@ -2,10 +2,10 @@
 
 ## Approach
 
-This hangman demo is a quick prototype - and is built to balance thoughtful front-end architecture with devlopment speed.
+This hangman demo is a quick prototype - and is built to balance thoughtful front-end architecture with development speed.
 The JS build is via Gulp -- and I'm leveraging the Babel library to integrate some ES6 syntax. 
-CSS is not being compiled -- because of the limited scope of overwrites and time concerns.
-I'm using jQuery primarily for DOM manipulation, and Bootstrap for quick and well tested templates. 
+CSS is not being preprocessed, but manually included -- because of the limited scope of overwrites and time concerns.
+I'm using jQuery primarily for DOM manipulation, and Bootstrap for quick and well tested grids, components, styles. 
 
 ## JS
 
@@ -23,13 +23,13 @@ This is the master controller -- minimal direct dom interactions -- but the anch
 - WordInput => manages welcome, and collecting initial word from user
 - GuessInput => manages user guesses
 - HangmanImage => manages drawing of the 'hangman'. In a team with a designer -- a canvas element could be used to overlay specific images, and line connections.
-- Modal => bootstrap modal - used for reportign win or lose results to the user
+- Modal => bootstrap modal - used for reporting win or lose results to the user
 - Error => error reporting 
-- GuessMapFlipCards => visualize open letters, correct guesses
-- Scoreboard => human readable game state
+- GuessMapFlipCards => visualize unguessed letters, and the flip reveal for correct guesses
+- Scoreboard => human readable game state reporting
 
 ### Utils
-- Validation -- thought there might be more validation, but there is one Regular Expression that seems to handle both word and single character inputs- testing for validity.
+- Validation -- I thought there might be more validation, but there is only one Regular Expression that seems to handle both word and single character inputs- testing for validity.
 
 ### Styles
 Bootstrap provides the grid, many components, the modal, jumbotron to name a few.
