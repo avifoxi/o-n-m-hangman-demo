@@ -9,9 +9,16 @@ var WordInput = function( MASTER ) {
 
 	$submit.click(function(e){
 		e.preventDefault();
-		let word = $input.val();
+
+		let word = $input.val(), 
+			valid = validate( word );
 		$input.val('');
-		MASTER.handleWordSubmit( word );
+
+		if ( !valid ){
+			MASTER.handleUserError( 'invalid word', this );
+		} else {
+			MASTER.handleWordSubmit( word );
+		}
 	});
 
 	this.toggle = function(){
@@ -22,3 +29,6 @@ var WordInput = function( MASTER ) {
 }
 
 module.exports = WordInput;
+
+
+		

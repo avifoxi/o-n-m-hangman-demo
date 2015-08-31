@@ -14,8 +14,7 @@ var HangmanImageController = function() {
 		$( reveal ).animate({
 			opacity: 0
 		}, 600);
-	}
-	
+	};
 }
 
 module.exports = HangmanImageController;

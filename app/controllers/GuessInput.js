@@ -15,19 +15,20 @@ var GuessInput = function ( MASTER ) {
 			valid = validate( guess );
 
 		$input.val('');
-		
+
 		if ( _oldGuesses.indexOf( guess ) !== -1 ){
 			error = 'already guessed';
 		} else if ( !valid ){
 			error = 'not a letter';
 		}
+		_oldGuesses.push( guess );
 
 		if ( error ){
-			MASTER.handleUserError( error, this );
+			MASTER.handleUserError( error );
 		} else {
 			MASTER.handleGuessSubmit( guess );
 		}
-	}.bind(this));
+	});
 	this.clearGuesses = function(){
 		_oldGuesses = [];
 	}

@@ -64,7 +64,7 @@ var MASTER = function () {
 		_playArea.hide(700);
 		_HangmanImage.reset();
 	};
-	this.handleUserError = function( error, sender ){
+	this.handleUserError = function( error ){
 		_Error.alert( error );
 	}
 
@@ -74,6 +74,7 @@ var MASTER = function () {
 		_Scoreboard.updateState({
 			[ isGameOver[0] ]: _previousGames[ isGameOver[0] ]
 		});
+		_GuessInput.clearGuesses();
 	}
 	function render( state, special ){
 		if ( special === 'START_GAME' ){
