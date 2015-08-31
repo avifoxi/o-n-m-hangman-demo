@@ -13,9 +13,7 @@ var HangmanImageController = function() {
 		let reveal = $imageCovers[ wrongNum ];
 		$( reveal ).animate({
 			opacity: 0
-		}, 600, function(){
-			$( reveal ).data('covering', false);
-		});
+		}, 600);
 	}
 	
 }

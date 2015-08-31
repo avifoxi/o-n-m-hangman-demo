@@ -1,5 +1,7 @@
 'use strict';
 
+var validate = require('../utils/validations.js');
+
 var WordInput = function( MASTER ) {
 	var $jumbotron = $('.jumbotron').data('hidden', false),
 		$submit =  $('[data="hangman[word-input]"] a'),

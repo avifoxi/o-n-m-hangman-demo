@@ -8,6 +8,7 @@ import GuessMapFlipCards from './controllers/GuessMapFlipCards.js';
 import GuessInput from './controllers/GuessInput.js';
 import Modal from './controllers/ModalController.js';
 import HangmanImage from './controllers/HangmanImage.js';
+import ErrorCtrl from './controllers/ErrorController.js';
 
 var MASTER = function () {
 	// Models
@@ -21,12 +22,15 @@ var MASTER = function () {
 		_GuessInput = {},
 		_Modal = {},
 		_HangmanImage = {},
+		_Error = {},
 
 	// Internal States
 		_previousGames = {
 			win: 0,
 			lose: 0
-		};
+		},
+	// master dom hook
+		_playArea;
 
 	// initialize controllers, and cache DOM nodes
 	$(document).ready(function(){
@@ -36,11 +40,14 @@ var MASTER = function () {
 		_GuessInput 	 = new GuessInput( this );
 		_Modal 				 = new Modal( this );
 		_HangmanImage  = new HangmanImage();
+		_Error 				 = new ErrorCtrl();
+		_playArea 		 = $('#play-area');
 	}.bind(this));
 
 	this.handleWordSubmit = function( word ){
 		_hangmanModel = new Hangman( word );
 		render( _hangmanModel.getState(), 'START_GAME' );
+		_playArea.show(1000);
 	};
 	this.handleGuessSubmit = function( guess ){
 		let newState, isGameOver;
@@ -54,7 +61,12 @@ var MASTER = function () {
 	};
 	this.handleNewGameClick = function(){
 		_WordInput.toggle();
+		_playArea.hide(700);
+		_HangmanImage.reset();
 	};
+	this.handleUserError = function( error, sender ){
+		_Error.alert( error );
+	}
 
 	function handleResult( isGameOver ){
 		_previousGames[ isGameOver[0] ] = ++_previousGames[ isGameOver[0] ]; // increment score
