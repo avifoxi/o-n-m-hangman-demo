@@ -7,6 +7,7 @@ import WordInput from './controllers/WordInput.js';
 import GuessMapFlipCards from './controllers/GuessMapFlipCards.js';
 import GuessInput from './controllers/GuessInput.js';
 import Modal from './controllers/ModalController.js';
+import HangmanImage from './controllers/HangmanImage.js';
 
 var MASTER = function () {
 	// Models
@@ -19,6 +20,7 @@ var MASTER = function () {
 		_GuessMapFlips = {},
 		_GuessInput = {},
 		_Modal = {},
+		_HangmanImage = {},
 
 	// Internal States
 		_previousGames = {
@@ -33,6 +35,7 @@ var MASTER = function () {
 		_GuessMapFlips = new GuessMapFlipCards();
 		_GuessInput 	 = new GuessInput( this );
 		_Modal 				 = new Modal( this );
+		_HangmanImage  = new HangmanImage();
 	}.bind(this));
 
 	this.handleWordSubmit = function( word ){
@@ -57,7 +60,7 @@ var MASTER = function () {
 		_previousGames[ isGameOver[0] ] = ++_previousGames[ isGameOver[0] ]; // increment score
 		_Modal.handleResult( isGameOver );
 		_Scoreboard.updateState({
-			isGameOver[0]: _previousGames[ isGameOver[0] ]
+			[ isGameOver[0] ]: _previousGames[ isGameOver[0] ]
 		});
 	}
 	function render( state, special ){
@@ -69,6 +72,9 @@ var MASTER = function () {
 			turnsLeft: state.turnsLeft,
 			wrongs: state.wrongs
 		});
+		if ( state.turnsLeft < 8 ){
+			_HangmanImage.handleWrong( state.turnsLeft );
+		}
 	}
 }
 

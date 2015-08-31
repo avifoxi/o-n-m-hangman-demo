@@ -30,8 +30,8 @@ var Hangman = function( word ) {
 		}
 		if ( !correct ){
 			_wrongs.push( char );
+			_turnsLeft--;
 		}
-		_turnsLeft--;
 		// logState.apply(this);
 		result = isGameOver();
 		return result ? result : null;
