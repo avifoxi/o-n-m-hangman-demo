@@ -1,0 +1,85 @@
+.jumbotron {
+	text-align: center;
+}
+
+.card-container {
+	width: 40px;
+  height: 60px;
+  position: relative;
+  margin: 0.25em;
+}
+section.card-container{
+	display: inline-block;
+}
+.flipCard {
+	
+  border-radius: 0.3em;
+	padding: 1em;
+	border: rgba(0 0 0 0) solid 0.1em;	
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+.flipCard figure {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flipCard .front {
+  background: red;
+}
+.flipCard .back {
+	color: white;
+  background: blue;
+  transform: rotateY( 180deg );
+}
+.flipCard.flipped {
+  transform: rotateY( 180deg );
+}
+
+.flipCard-row {
+	margin: 0 auto;
+	text-align: center;
+}
+.flipCard {
+  
+}
+
+[data="hangman[image]"]{
+	height: 12em;
+	background-color: red;
+	background-image: url(../images/hangman.png);
+	background-repeat: no-repeat;
+  margin: 1em;
+  border-radius: 10px;
+}
+
+.image-covers {
+	width: 50%;
+	background-color: white;
+	height: 25%;
+	float:left;
+}
+
+[data="hangman[guess-input]"] {
+	text-align: center;
+}
+
+#play-area {
+	margin-top: 2em;
+}
+
+.alert-parent {
+	position: fixed;
+	top: 40%;
+	width: 80%;
+}
+
+div.alert {
+	z-index: 2;
+}
